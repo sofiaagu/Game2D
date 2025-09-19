@@ -8,8 +8,8 @@ public class PlayerMove : MonoBehaviour
 
     public float horizontal;
     public float vertical;   // por ahora no se usa, puede servir luego para salto
-    public float speed = 1f;
-    public float jumpForce = 0.2f;
+    public float speed = 2f;
+    public float jumpForce = 3f;
 
     private bool isJumping = false;
 

@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontal: 0
   vertical: 0
-  speed: 5
+  speed: 2
   jumpForce: 5
 --- !u!95 &2462787264615071620
 Animator:
