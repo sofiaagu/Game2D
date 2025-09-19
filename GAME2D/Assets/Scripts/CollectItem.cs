@@ -12,7 +12,6 @@ public class CollectItem : MonoBehaviour
         {
             Debug.Log("El jugador recogió: " + nameItem + " (+" + itemValue + ")");
 
-            // 👉 Sumar puntos en GameManager según el nombre
             if (nameItem == "Apple")
             {
                 GameManager.Instance.TotalApple(itemValue);
