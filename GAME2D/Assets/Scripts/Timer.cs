@@ -23,6 +23,11 @@ public class Timer : MonoBehaviour
     private float timerTime;
     private bool isRunning = false;
 
+    public float StartTime { get => startTime; set => startTime = value; }
+    public float StopTime { get => stopTime; set => stopTime = value; }
+    public float TimerTime { get => timerTime; set => timerTime = value; }
+    public bool IsRunning { get => isRunning; set => isRunning = value; }
+
     // Use this for initialization
     void Start()
     {
