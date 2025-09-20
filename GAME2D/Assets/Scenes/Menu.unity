@@ -410,6 +410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   appleText: {fileID: 3900741383648795926}
   bananaText: {fileID: 4881383500522688355}
+  musicClip: {fileID: 8300000, guid: 377793e62e7d14e4f926235c24783c8a, type: 3}
 --- !u!4 &2044749748
 Transform:
   m_ObjectHideFlags: 0

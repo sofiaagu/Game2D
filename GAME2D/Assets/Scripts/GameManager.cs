@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     private int scoreApple;
     private int scoreBanana;
 
+    private AudioSource audioSource;
+    public AudioClip musicClip;
+
 
 
     void Awake()
@@ -28,6 +31,17 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
 
+       
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        audioSource.clip = musicClip;   
+        audioSource.loop = true;       
+        audioSource.playOnAwake = true; 
+        audioSource.volume = 0.5f;      
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -37,14 +51,18 @@ public class GameManager : MonoBehaviour
         UpdateScoreUI();
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         globalTime = 0;
         UpdateScoreUI();
+      
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
 
