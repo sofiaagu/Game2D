@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class CollectItem : MonoBehaviour
 {
-    [Header("Opciones de Item")]
     public string nameItem;   // Nombre del ítem (ej: Manzana, Banana)
     public int itemValue = 1; // Valor en puntos
 
+    public AudioClip itemSound;   
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -20,6 +20,12 @@ public class CollectItem : MonoBehaviour
             {
                 GameManager.Instance.TotalBanana(itemValue);
             }
+            if (itemSound != null)
+            {
+                AudioSource.PlayClipAtPoint(itemSound, transform.position);
+
+            }
+
 
             Destroy(gameObject);
         }

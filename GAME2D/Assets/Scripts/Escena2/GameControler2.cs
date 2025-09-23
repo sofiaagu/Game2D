@@ -1,88 +1,46 @@
-// using System.Collections;
-// using System.Collections.Generic;
-// using UnityEngine;
-// using UnityEngine.UI;
-// using TMPro;
+﻿using UnityEngine;
 
-// public class Timer : MonoBehaviour
-// {
-//     // #region sonidos
-//     // [SerializeField]
-//     // private AudioClip stop;
-//     // [SerializeField]
-//     // private AudioSource respuestaAudio;
-//     // //Reloj objReloj;
-//     // #endregion
+public class GameController2 : MonoBehaviour
+{
+    [Header("Referencia al Timer de la escena")]
+    public Timer tiempoEscena;  // arrastrar el objeto Timer desde el Inspector
 
-//     public TextMeshProUGUI timerMinutes;
-//     public TextMeshProUGUI timerSeconds;
-//     public TextMeshProUGUI timerSeconds100;
+    // Si necesitas inicializar cosas al inicio
+    void Start()
+    {
+        if (tiempoEscena == null)
+        {
+            Debug.LogWarning("⏱️ No se asignó el Timer en GameController2.");
+        }
+    }
 
-//     private float startTime;
-//     private float stopTime;
-//     private float timerTime;
-//     private bool isRunning = false;
+    void Update()
+    {
+        // Aquí podrías manejar lógica adicional de la escena si lo requieres
+    }
 
-//     public float StartTime { get => startTime; set => startTime = value; }
-//     public float StopTime { get => stopTime; set => stopTime = value; }
-//     public float TimerTime { get => timerTime; set => timerTime = value; }
-//     public bool IsRunning { get => isRunning; set => isRunning = value; }
+    /// <summary>
+    /// Detiene el tiempo de la escena, lo suma al global
+    /// y activa el Panel de Game Over.
+    /// </summary>
+    public void addTime()
+    {
+        if (tiempoEscena != null)
+        {
+            // Detener el temporizador de la escena
+            tiempoEscena.TimerStop();
+            float getTimeScene = tiempoEscena.StopTime;
 
-//     // Use this for initialization
-//     void Start()
-//     {
-//         TimerReset();
-//     }
+            // Sumar el tiempo al global
+            GameManager.Instance.TotalTime(getTimeScene);
 
-//     public void TimerStart()
-//     {
-//         if (!isRunning)
-//         {
-//             print("START");
-//             isRunning = true;
-//             startTime = Time.time;
-//         }
-//     }
+            Debug.Log("Tiempo Escena 2 agregado: " + getTimeScene);
+            Debug.Log("Tiempo Global acumulado: " + GameManager.Instance.GlobalTime);
+        }
+        else
+        {
+            Debug.LogWarning("No hay referencia a Timer en GameController2.");
+        }
 
-//     public void TimerStop()
-//     {
-//         if (isRunning)
-//         {
-//             print("STOP");
-//             isRunning = false;
-//             stopTime = timerTime;
-//             Debug.Log(stopTime.ToString());
-//             ///
-//             // if (stopTime >= 30)
-//             // {
-//             //     respuestaAudio.clip = stop;
-//             //     respuestaAudio.Play();
-//             // }
-
-//         }
-//     }
-
-//     public void TimerReset()
-//     {
-//         print("RESET");
-//         stopTime = 0;
-//         isRunning = false;
-//         timerMinutes.text = timerSeconds.text = timerSeconds100.text = "00";
-//     }
-
-//     // Update is called once per frame
-//     void Update()
-//     {
-//         timerTime = stopTime + (Time.time - startTime);
-//         int minutesInt = (int)timerTime / 60;
-//         int secondsInt = (int)timerTime % 60;
-//         int seconds100Int = (int)(Mathf.Floor((timerTime - (secondsInt + minutesInt * 60)) * 100));
-
-//         if (isRunning)
-//         {
-//             timerMinutes.text = (minutesInt < 10) ? "0" + minutesInt : minutesInt.ToString();
-//             timerSeconds.text = (secondsInt < 10) ? "0" + secondsInt : secondsInt.ToString();
-//             timerSeconds100.text = (seconds100Int < 10) ? "0" + seconds100Int : seconds100Int.ToString();
-//         }
-//     }
-// }
+    }
+}

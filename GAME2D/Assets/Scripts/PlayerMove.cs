@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -53,7 +54,19 @@ public class PlayerMove : MonoBehaviour
     {
         if (other.CompareTag("Flag"))
         {
-            SceneManager.LoadScene("Scene2"); // 👈 usa el nombre exacto de tu escena
+            FindAnyObjectByType<GameController1>().addTime();
+            SceneManager.LoadScene("Scene2"); // bandera de la primera escena
+        }
+        else if (other.CompareTag("EndFlag"))
+        {
+            FindAnyObjectByType<GameController2>().addTime();
+            SceneManager.LoadScene("GameOver"); // bandera de la segunda escena → final
         }
     }
+
+    private object FindFirstObjectOfType<T>()
+    {
+        throw new NotImplementedException();
+    }
 }
+

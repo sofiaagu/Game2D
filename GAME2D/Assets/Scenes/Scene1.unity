@@ -467,6 +467,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 9200429312626778990, guid: d95738fc76eda394d952984bae0b4e72, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -7163,6 +7167,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3303668441999038341, guid: 57e8fb990fa1286479b79f93100b71b0, type: 3}
+      propertyPath: itemSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c7f9a52ea433f124ca763f7c2877e189, type: 3}
     - target: {fileID: 3303668441999038341, guid: 57e8fb990fa1286479b79f93100b71b0, type: 3}
       propertyPath: itemValue
       value: 5
