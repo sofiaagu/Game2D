@@ -86,7 +86,7 @@ public class Timer : MonoBehaviour
         }
     }
 
-    // ✅ Método reutilizable para formatear
+ 
     public static string FormatTime(float t)
     {
         int minutesInt = (int)t / 60;

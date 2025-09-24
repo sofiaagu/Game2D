@@ -70,7 +70,7 @@ public class PlayerMove : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("⚠️ No encontré el FinalPanelController en la escena.");
+                Debug.LogWarning("No encontré el FinalPanelController en la escena.");
             }
         }
     }
