@@ -60,13 +60,21 @@ public class PlayerMove : MonoBehaviour
         else if (other.CompareTag("EndFlag"))
         {
             FindAnyObjectByType<GameController2>().addTime();
-            SceneManager.LoadScene("GameOver"); // bandera de la segunda escena → final
+
+            // Buscar el controlador del panel y mostrarlo
+            FinalPanelController panelController = FindFirstObjectByType<FinalPanelController>(FindObjectsInactive.Include);
+
+            if (panelController != null)
+            {
+                panelController.ShowFinalPanel();
+            }
+            else
+            {
+                Debug.LogWarning("⚠️ No encontré el FinalPanelController en la escena.");
+            }
         }
     }
 
-    private object FindFirstObjectOfType<T>()
-    {
-        throw new NotImplementedException();
-    }
+    
 }
 

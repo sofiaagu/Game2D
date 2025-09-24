@@ -13,9 +13,6 @@ public class GameManager : MonoBehaviour
     public int scoreApple;
     public int scoreBanana;
 
-    private AudioSource audioSource;
-    public AudioClip musicClip;
-
     void Awake()
     {
         if (Instance != null && Instance != this)

@@ -541,7 +541,6 @@ MonoBehaviour:
   bananaText: {fileID: 4881383500522688355}
   scoreApple: 0
   scoreBanana: 0
-  musicClip: {fileID: 8300000, guid: 377793e62e7d14e4f926235c24783c8a, type: 3}
 --- !u!4 &2044749748
 Transform:
   m_ObjectHideFlags: 0
@@ -691,6 +690,10 @@ PrefabInstance:
     - target: {fileID: 8190566609964518889, guid: d95738fc76eda394d952984bae0b4e72, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200429312626778990, guid: d95738fc76eda394d952984bae0b4e72, type: 3}
+      propertyPath: m_Name
+      value: FinalPanel
       objectReference: {fileID: 0}
     - target: {fileID: 9200429312626778990, guid: d95738fc76eda394d952984bae0b4e72, type: 3}
       propertyPath: m_IsActive
